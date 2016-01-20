@@ -53,5 +53,3 @@ RUN /bin/bash -c "source ~/bashrc.local && \
     make -j8 && \
     ./run_tests -j8"
 
-# set the entrypoint
-
