@@ -1,0 +1,4 @@
+# Source MOOSE Environment
+if [ -f /opt/moose/environments/moose_profile ]; then
+  . /opt/moose/environments/moose_profile
+fi
