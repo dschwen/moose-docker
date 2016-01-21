@@ -64,23 +64,3 @@ RUN apm install language-moose && \
     apm install line-diff-details && \
     apm install merge-conflicts
 
-# clone the moose repository
-RUN mkdir ~/projects && \
-    cd ~/projects && \
-    git clone https://github.com/idaholab/moose.git && \
-    cd ~/projects/moose && \
-    git checkout master
-
-# build libmesh
-RUN /bin/bash -c "source ~/bashrc.local && \
-    cd ~/projects/moose && \
-    scripts/update_and_rebuild_libmesh.sh"
-
-# build and run tests
-RUN /bin/bash -c "source ~/bashrc.local && \
-    cd ~/projects/moose/test && \
-    make -j8 && \
-    ./run_tests -j8"
-
-# further changes to ~/projects should persist
-VOLUME /home/moose/projects
