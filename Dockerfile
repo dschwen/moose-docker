@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libblas-dev \
     liblapack-dev \
     libx11-dev \
-    libglib2.0-0
+    libglib2.0-0 \
+    libgl1-mesa-dri
 
 # get and install the MOOSE redistributable package
 RUN wget http://mooseframework.org/static/media/uploads/files/${moose_deb} && \
@@ -81,3 +82,5 @@ RUN /bin/bash -c "source ~/bashrc.local && \
     make -j8 && \
     ./run_tests -j8"
 
+# further changes to ~/projects should persist
+VOLUME /home/moose/projects

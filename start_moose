@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd `dirname $0`
+DIR=`pwd`
+docker build -t dschwen/moose . && \
+docker run -e DISPLAY=$DISPLAY -v /tmp:/tmp -v $DIR/projects:/home/moose/projects --ipc=host --pid=host --privileged -ti dschwen/moose /bin/bash
