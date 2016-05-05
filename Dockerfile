@@ -10,5 +10,6 @@ RUN cd / && \
 
 RUN wget https://raw.githubusercontent.com/dschwen/moose/bisect_6389/test/tests/postprocessors/findvalueonline/findvalueonline.i
 
+RUN mv libmesh/installed/lib/libmesh_opt.so.0 .
 RUN ./modules-opt -i findvalueonline.i
 
