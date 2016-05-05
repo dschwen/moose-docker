@@ -8,5 +8,7 @@ RUN cd / && \
     wget http://www.schwen.de/moose-bin.tgz && \
     tar xvzf moose-bin.tgz
 
-RUN ls -latr /
+RUN wget https://raw.githubusercontent.com/dschwen/moose/bisect_6389/test/tests/postprocessors/findvalueonline/findvalueonline.i
+
+RUN ./modules-opt -i findvalueonline.i
 
